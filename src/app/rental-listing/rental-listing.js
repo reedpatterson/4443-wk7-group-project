@@ -17,8 +17,18 @@ class RentalProperty {
 var rentalArr = [];
 
 function onInit() {
-  var rental1 = new RentalProperty(1, '1553 Silvers Rd', 'Suburban home in a quiet neighborhood', 6, true, false)
-  rentalArr.push(rental1)
+  var rental1 = new RentalProperty(1, '1553 Silvers Rd', 3, true, false);
+  var rental2 = new RentalProperty(2, '3288 Ritter Street', 4, true, true);
+  var rental3 = new RentalProperty(3, '3275 Lonely Oak Drive', 5, false, false);
+  var rental4 = new RentalProperty(4, '4442 Hickory Street', 1, false, false);
+  var rental5 = new RentalProperty(5, '2396 Broad Street', 2, false, true);
+  var rental6 = new RentalProperty(6, '2078 Retreat Avenue', 3, true, false);
+  rentalArr.push(rental1);
+  rentalArr.push(rental2);
+  rentalArr.push(rental3);
+  rentalArr.push(rental4);
+  rentalArr.push(rental5);
+  rentalArr.push(rental6);
   this.displayListings();
 }
 
@@ -26,7 +36,7 @@ function displayListings() {
   var listingContainer = document.getElementById('listing-container');
   for (var r of rentalArr) {
     var tempDiv = document.createElement("div");
-    tempDiv.classList.add("col-3");
+    tempDiv.classList.add("col-4");
     tempDiv.classList.add("p-3");
     tempDiv.innerHTML =
       `
@@ -34,14 +44,14 @@ function displayListings() {
         <img id="image${r.id}" src="" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${r.location}</h5>
-    
+    <p class="card-text">Bedrooms: ${r.numRooms}</p>
     <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" disabled>
+    <input id="petCheck${r.id}" class="form-check-input" type="checkbox" value="" disabled>
     <label class="form-check-label">
       Pets?
     </label>
     <br/>
-    <input class="form-check-input" type="checkbox" value="" disabled>
+    <input id="smokeCheck${r.id}" class="form-check-input" type="checkbox" value="" disabled>
     <label class="form-check-label">
       Smoking?
     </label>
@@ -57,7 +67,7 @@ function displayListings() {
       <div class="modal-header">
         <h5 class="modal-title" id="modal${r.id}Label">${r.location}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        
+
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -75,10 +85,9 @@ function displayListings() {
 `
     listingContainer.appendChild(tempDiv);
     document.getElementById(`image${r.id}`).src = `../../../assets/images/house${r.id}/front.jpg`;
+    document.getElementById(`petCheck${r.id}`).checked = r.petsAllowed;
+    document.getElementById(`smokeCheck${r.id}`).checked = r.smokingAllowed;
     // dynamically set check boxes baseed on object bools
   }
 }
 
-  function goToDetails(id) {
-    console.log
-  }
