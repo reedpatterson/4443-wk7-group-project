@@ -1,13 +1,15 @@
 class RentalProperty {
   id; //number
   location; //string
+  price; //string
   numRooms; //number
   petsAllowed; //boolean
   smokingAllowed; //boolean
 
-  constructor(id, location, numRooms, petsAllowed, smokingAllowed) {
+  constructor(id, location, price, numRooms, petsAllowed, smokingAllowed) {
     this.id = id;
     this.location = location;
+    this.price = price;
     this.numRooms = numRooms;
     this.petsAllowed = petsAllowed;
     this.smokingAllowed = smokingAllowed;
@@ -17,12 +19,12 @@ class RentalProperty {
 var rentalArr = [];
 
 function onInit() {
-  var rental1 = new RentalProperty(1, '1553 Silvers Rd', 3, true, false);
-  var rental2 = new RentalProperty(2, '3288 Ritter Street', 4, true, true);
-  var rental3 = new RentalProperty(3, '3275 Lonely Oak Drive', 5, false, false);
-  var rental4 = new RentalProperty(4, '4442 Hickory Street', 1, false, false);
-  var rental5 = new RentalProperty(5, '2396 Broad Street', 2, false, true);
-  var rental6 = new RentalProperty(6, '2078 Retreat Avenue', 3, true, false);
+  var rental1 = new RentalProperty(1, '1553 Silvers Rd', 75, 3, true, false);
+  var rental2 = new RentalProperty(2, '3288 Ritter Street', 110, 4, true, true);
+  var rental3 = new RentalProperty(3, '3275 Lonely Oak Drive', 125, 5, false, false);
+  var rental4 = new RentalProperty(4, '4442 Hickory Street', 80, 1, false, false);
+  var rental5 = new RentalProperty(5, '2396 Broad Street', 65, 2, false, true);
+  var rental6 = new RentalProperty(6, '2078 Retreat Avenue', 85, 3, true, false);
   rentalArr.push(rental1);
   rentalArr.push(rental2);
   rentalArr.push(rental3);
@@ -44,7 +46,10 @@ function displayListings() {
         <div class="card">
         <img id="image${r.id}" src="" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">${r.location}</h5>
+    <div class="mb-3">
+    <h5 class="card-title mb-0">${r.location}</h5>
+    <small>$${r.price}/night</small>
+    </div>
     <p class="card-text">Bedrooms: ${r.numRooms}</p>
     <div class="form-check">
     <input id="petCheck${r.id}" class="form-check-input" type="checkbox" value="" disabled>

@@ -4,5 +4,5 @@
     src: url(../assets/fonts/Lora-Regular.ttf);
 }
 body {
-    font-family: lora;
+    font-family: lora !important;
 }
