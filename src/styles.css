@@ -1,1 +1,8 @@
 /* Global, sitewide styles */
+@font-face {
+    font-family: lora;
+    src: url(../assets/fonts/Lora-Regular.ttf);
+}
+body {
+    font-family: lora;
+}

@@ -36,7 +36,8 @@ function displayListings() {
   var listingContainer = document.getElementById('listing-container');
   for (var r of rentalArr) {
     var tempDiv = document.createElement("div");
-    tempDiv.classList.add("col-4");
+    tempDiv.classList.add("col-lg-4");
+    tempDiv.classList.add("col-12");
     tempDiv.classList.add("p-3");
     tempDiv.innerHTML =
       `
@@ -56,11 +57,18 @@ function displayListings() {
       Smoking?
     </label>
   </div>
+  <div class="pt-3 row justify-content-around">
+  <button type="button" class="col-5 px-0 btn btn-secondary" data-toggle="modal" data-target="#modal${r.id}">
+  View Gallery
+  </button>
+  <button type="button" class="col-5 px-0 btn btn-primary">
+  <a href="" style="color: #ffffff; text-decoration: none">
+  Book Property
+  </a>
+  </button>
   </div>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal${r.id}">
-  View Property Details
-</button>
-
+  </div>
+  
 <div class="modal fade" id="modal${r.id}" tabindex="-1" aria-labelledby="modal${r.id}Label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -72,12 +80,86 @@ function displayListings() {
         </button>
       </div>
       <div class="modal-body">
-        ...
+      <div class="" id="galleryAccordion">
+      <div class="card">
+        <div class="card-header" id="headingFront${r.id}">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFront${r.id}" aria-expanded="true" aria-controls="collapseFront${r.id}">
+              Front
+            </button>
+          </h2>
+        </div>
+    
+        <div id="collapseFront${r.id}" class="collapse show" aria-labelledby="headingFront${r.id}" data-parent="#galleryAccordion">
+          <div class="card-body">
+          <img class="img-fluid" src="../../../assets/images/house${r.id}/front.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingLivingRoom${r.id}">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseLivingRoom${r.id}" aria-expanded="false" aria-controls="collapseLivingRoom${r.id}">
+              Living Room
+            </button>
+          </h2>
+        </div>
+        <div id="collapseLivingRoom${r.id}" class="collapse" aria-labelledby="headingLivingRoom${r.id}" data-parent="#galleryAccordion">
+          <div class="card-body">
+          <img class="img-fluid" src="../../../assets/images/house${r.id}/living-room.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingBedroom${r.id}">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseBedroom${r.id}" aria-expanded="false" aria-controls="collapseBedroom${r.id}">
+              Master Bedroom
+            </button>
+          </h2>
+        </div>
+        <div id="collapseBedroom${r.id}" class="collapse" aria-labelledby="headingBedroom${r.id}" data-parent="#galleryAccordion">
+          <div class="card-body">
+          <img class="img-fluid" src="../../../assets/images/house${r.id}/bedroom.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingKitchen${r.id}">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseKitchen${r.id}" aria-expanded="false" aria-controls="collapseKitchen${r.id}">
+              Kitchen
+            </button>
+          </h2>
+        </div>
+        <div id="collapseKitchen${r.id}" class="collapse" aria-labelledby="headingKitchen${r.id}" data-parent="#galleryAccordion">
+          <div class="card-body">
+          <img class="img-fluid" src="../../../assets/images/house${r.id}/kitchen.jpg" />
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingBathroom${r.id}">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseBathroom${r.id}" aria-expanded="false" aria-controls="collapseBathroom${r.id}">
+              Bathroom
+            </button>
+          </h2>
+        </div>
+        <div id="collapseBathroom${r.id}" class="collapse" aria-labelledby="headingBathroom${r.id}" data-parent="#galleryAccordion">
+          <div class="card-body">
+          <img class="img-fluid" src="../../../assets/images/house${r.id}/bathroom.jpg" />
+          </div>
+        </div>
+      </div>
+    </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <button type="button" class="col-5 px-0 btn btn-primary">
+      <a href="" style="color: #ffffff; text-decoration: none">
+      Book Property
+      </a>
+      </button>      </div>
     </div>
   </div>
 </div>
