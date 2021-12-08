@@ -81,7 +81,7 @@ function displayListings() {
   </div>
   </div>
   
-<div class="modal fade" id="modal${r.id}" tabindex="-1" aria-labelledby="modal${r.id}Label" aria-hidden="true">
+<div class="modal fade" id="modal${r.id}" tabhome="-1" aria-labelledby="modal${r.id}Label" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
