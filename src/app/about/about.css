@@ -1,0 +1,32 @@
+body{
+	width:100%;
+	font-size: 20px;
+	position: fixed;
+	background-image: url('../../../assets/images/about/livingroom-bg.jpg');
+	background-size: cover;
+	background-size: 1100px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+h1{
+	color: blue;
+	text-align: center;
+	font-size:60px;
+	font-family: Times Roman, san serif;
+	text-shadow: 1.2px 1.2px black;
+}
+p{ 
+	margin-right: 10px;
+	margin-left: 7em;
+	padding-right: 60px;
+	text-align: left;
+	text-shadow: 1.2px 1.2px black;
+	color: #007bff;
+}
+.container a:hover{
+	color: #6c757d;
+}
+.container a{
+	color: blue;
+}

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/png" href="../../../assets/favicon.ico">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+	<link rel="stylesheet" href="../../styles.css" />
+	
+	<title>Booking</title>
+</head>
+
+
+<body>
+	  <div class="container-fluid p-0">
+		  <div class="w-100 p-6">
+			<nav class="navbar navbar-expand-lg justify-content-center navbar-light bg-secondary">
+			  <a class="navbar-brand" href="../index/index.html">
+				<img src="../../../assets/images/logo_TRG.png" width="100" height="100" class="d-inline-block align-center"
+				  alt="troy rental group logo">
+				Troy Rental Group
+			  </a>
+			  <div class="navbar-nav">
+				<a class="nav-item nav-link" href="../rental-listing/rental-listing.html">View Listings</a>
+				<a class="nav-item nav-link" href="../become-host/becomehost-page.html">Become a Host </a>
+				<a class="nav-item nav-link" href="../about/about.html">About Us </a>
+				<a class="nav-item nav-link" href="../contact/contact.html">Contact Us </a>
+			  </nav>
+			  </div>
+		  </div>
+    <div class="container mt-3">
+		<br/>
+		<h1>Booking</h1>
+	</div>
+  <pre>
+  </pre>
+  <div class="col-8 d-flex justify-content-center">
+  <form action="" method="post">
+  
+	<div class="input-group col-12">
+	   
+		<label class="input-group-text col-3" id="">Name:</label>
+	  
+	   <div class="col-8">
+		<input type="text" class="form-control" id="InputName" placeholder="Enter your name">
+	   </div>
+	</div>
+	
+	<br/>
+	
+	
+	<div class="input-group col-12">
+	   
+		<label class="input-group-text col-3" id="">Contact Address:</label>
+	  
+	   <div class="col-8">
+		<input type="text" class="form-control" id="InputAddress" placeholder="Enter your address">
+	   </div>
+	</div>
+	
+	<br/>
+	
+	<div class="input-group col-12">
+	   
+		<label class="input-group-text col-3" id="">Contact Email:</label>
+	  
+	   <div class="col-8">
+		<input type="text" class="form-control" id="InputEmail" placeholder="Enter your email">
+	   </div>
+	</div>
+	
+	<br/>
+	
+	<div class="input-group col-12">
+	   
+		<label class="input-group-text col-3" id="">Housing Options:</label>
+	  
+	   <div class="col-8">
+	     <select class="custom-select" id="inputHouseSelect" onchange="changeImage()">
+		  <option value="house1" selected>1553 Silvers Rd</option>
+		  <option value="house2">3288 Ritter Street</option>
+		  <option value="house3">3275 Lonely Oak Drive</option>
+		  <option value="house4">4442 Hickory Street</option>
+		  <option value="house5">2396 Broad Street</option>
+		  <option value="house6">2078 Retreat Avenue</option>
+	   </select>
+	   </div>
+	</div>
+	
+	<br/>
+	
+	<img src="../../../assets/images/house1/front.jpg" width="300" height="300" class="rounded mx-auto d-block" id="propertyDisplayImage" alt="">
+	
+	<br/>
+	
+	<div class="input-group col-12">
+	   
+		<label class="input-group-text col-3" id="">Booking Date:</label>
+	  
+	   <div class="col-4">
+		<input type="date" class="form-control" placeholder="Start date">
+	   </div>
+		<pre> TO </pre>
+	   <div class="col-4">
+		<input type="date" class="form-control" placeholder="End date">
+	  </div>
+	</div>
+	
+	<br/>
+	
+	<div class="col-12">
+		<button type="button" class="btn btn-primary" onclick="alert('Booking request received.')">Submit Booking Request</button>
+	</div>
+	
+	<br/>
+	<br/>
+	
+  </form>
+  </div>
+      
+    <!-- JavaScript -->
+	<script>
+	function changeImage() {
+		var x = document.getElementById("inputHouseSelect").value;
+		document.getElementById("propertyDisplayImage").src = "../../../assets/images/" + x + "/front.jpg";
+	}
+    </script>
+	<script>
+		const id = window.location.search.substr(1);
+		const x = document.getElementById("inputHouseSelect");
+		x.value = `house${id}`;
+		var evt = new Event('change');
+		x.dispatchEvent(evt)
+	</script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  </body>
+</html>
