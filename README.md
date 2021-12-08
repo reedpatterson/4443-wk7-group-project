@@ -3,4 +3,4 @@
     Garrison Cole Oppert
     Mark Micheal Givand
     Reed Patterson
-    Shan Taylor McLain
+    (Shan Taylor McLain did not participate)

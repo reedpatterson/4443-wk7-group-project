@@ -5,26 +5,28 @@ class RentalProperty {
   numRooms; //number
   petsAllowed; //boolean
   smokingAllowed; //boolean
+  parkingAvailable; //boolean
 
-  constructor(id, location, price, numRooms, petsAllowed, smokingAllowed) {
+  constructor(id, location, price, numRooms, petsAllowed, smokingAllowed, parkingAvailable) {
     this.id = id;
     this.location = location;
     this.price = price;
     this.numRooms = numRooms;
     this.petsAllowed = petsAllowed;
     this.smokingAllowed = smokingAllowed;
+    this.parkingAvailable = parkingAvailable;
   }
 }
 
 var rentalArr = [];
 
 function onInit() {
-  var rental1 = new RentalProperty(1, '1553 Silvers Rd', 75, 3, true, false);
-  var rental2 = new RentalProperty(2, '3288 Ritter Street', 110, 4, true, true);
-  var rental3 = new RentalProperty(3, '3275 Lonely Oak Drive', 125, 5, false, false);
-  var rental4 = new RentalProperty(4, '4442 Hickory Street', 80, 1, false, false);
-  var rental5 = new RentalProperty(5, '2396 Broad Street', 65, 2, false, true);
-  var rental6 = new RentalProperty(6, '2078 Retreat Avenue', 85, 3, true, false);
+  var rental1 = new RentalProperty(1, '1553 Silvers Rd', 75, 3, true, false, true);
+  var rental2 = new RentalProperty(2, '3288 Ritter Street', 110, 4, true, true, true);
+  var rental3 = new RentalProperty(3, '3275 Lonely Oak Drive', 125, 5, false, false, true);
+  var rental4 = new RentalProperty(4, '4442 Hickory Street', 80, 1, false, false, false);
+  var rental5 = new RentalProperty(5, '2396 Broad Street', 65, 2, false, true, true);
+  var rental6 = new RentalProperty(6, '2078 Retreat Avenue', 85, 3, true, false, true);
   rentalArr.push(rental1);
   rentalArr.push(rental2);
   rentalArr.push(rental3);
@@ -61,13 +63,18 @@ function displayListings() {
     <label class="form-check-label">
       Smoking?
     </label>
+    <br/>
+    <input id="parkingCheck${r.id}" class="form-check-input" type="checkbox" value="" disabled>
+    <label class="form-check-label">
+      Parking Available?
+    </label>
   </div>
   <div class="pt-3 row justify-content-around">
   <button type="button" class="col-5 px-0 btn btn-secondary" data-toggle="modal" data-target="#modal${r.id}">
   View Gallery
   </button>
   <button type="button" class="col-5 px-0 btn btn-primary">
-  <a href="" style="color: #ffffff; text-decoration: none">
+  <a href="../booking/booking.html?${r.id}" style="color: #ffffff; text-decoration: none">
   Book Property
   </a>
   </button>
@@ -161,7 +168,7 @@ function displayListings() {
       </div>
       <div class="modal-footer">
       <button type="button" class="col-5 px-0 btn btn-primary">
-      <a href="" style="color: #ffffff; text-decoration: none">
+      <a href="../booking/booking.html?${r.id}" style="color: #ffffff; text-decoration: none">
       Book Property
       </a>
       </button>      </div>
@@ -174,6 +181,7 @@ function displayListings() {
     document.getElementById(`image${r.id}`).src = `../../../assets/images/house${r.id}/front.jpg`;
     document.getElementById(`petCheck${r.id}`).checked = r.petsAllowed;
     document.getElementById(`smokeCheck${r.id}`).checked = r.smokingAllowed;
+    document.getElementById(`parkingCheck${r.id}`).checked = r.parkingAvailable;
     // dynamically set check boxes baseed on object bools
   }
 }
